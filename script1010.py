@@ -108,3 +108,4 @@ for item in recept['ingredience']:
     # Přičtení ceny k celkové ceně
     celkova_cena += cena
 print(f"Celková cena jídla je {celkova_cena} Kč.")
+"test"
