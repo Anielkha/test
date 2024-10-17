@@ -102,10 +102,73 @@ recept = {
         ['šalvějové lístky', '20-25', '12 kč']
     ]
 }
+ingredience = recept["ingredience"]
 celkova_cena = 0
-for item in recept['ingredience']:
-    cena = round(float(item[2].replace('kč', '').strip()))
-    # Přičtení ceny k celkové ceně
-    celkova_cena += cena
-print(f"Celková cena jídla je {celkova_cena} Kč.")
-"test"
+for polozka in ingredience:
+    cena_retezec = polozka[2]
+    # cena = cena_retezec.replace(" kč, "")
+    # cena = cena_retezec.strip("čk ")
+    # cena = cena_retezec[:-3]
+    cena_seznam = cena_retezec.split()
+    cena = cena_seznam[0]
+    cena = float(cena)
+    celkova_cena = celkova_cena + cena
+    print(celkova_cena)
+
+
+# gpt reseni
+# celkova_cena = 0
+# for item in recept['ingredience']:
+#     cena = round(float(item[2].replace('kč', '').strip()))
+#     # Přičtení ceny k celkové ceně
+#     celkova_cena += cena
+# print(f"Celková cena jídla je {celkova_cena} Kč.")
+# "test"
+# reseni: code session
+# ingredience = recept["ingredience"]
+# celkova_cena = 0
+# for polozka in ingredience:
+#     # polozka = ['batát', '1', '15 kč']
+#     # Chci uložit 15 Kč
+#     cena_retezec = polozka[2]
+#     # Chci z "15 Kč" získat 15
+#     # cena = cena_retezec.replace(" kč", "")
+#     # cena = cena_retezec.strip("čk ")
+#     # cena = cena_retezec[:-3]
+#     # "15 Kč" -> ["15", "Kč"]
+#     cena_seznam = cena_retezec.split()
+#     cena = cena_seznam[0]
+#     cena = float(cena)
+#     celkova_cena = celkova_cena + cena
+# print(celkova_cena)
+
+books = [
+    {"title": "Zkus mě chytit", "sold": 4165, "price": 347, "year": 2018},
+    {"title": "Vrah zavolá v deset", "sold": 5681, "price": 299, "year": 2019},
+    {"title": "Zločinný steh", "sold": 2565, "price": 369, "year": 2019},
+]
+# def is_2019(book):
+#     return book["year"] == 2019
+# books_2019 = []
+# for item in books:
+#     if is_2019(item):
+#         books_2019.append(item)
+# print(books_2019)
+
+
+def is_2019(book):
+      return book["year"] == 2019
+books = list(filter(is_2019, books))
+print(books)
+
+reseni z chatu
+books = [
+    {"title": "Zkus mě chytit", "sold": 4165, "price": 347, "year": 2018},
+    {"title": "Vrah zavolá v deset", "sold": 5681, "price": 299, "year": 2019},
+    {"title": "Zločinný steh", "sold": 2565, "price": 369, "year": 2019},
+]
+# def is_2019(book):
+#     return book["year"] == 2019
+books = filter(lambda book: book["year"] == 2019, books)
+for item in books:
+    print(item)
